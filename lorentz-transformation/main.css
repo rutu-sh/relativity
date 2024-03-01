@@ -1,6 +1,17 @@
-#container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50vh; /* Adjust as needed */
-  }
+#slider, #container, #container2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+}
+
+#container{
+  margin-top: -100vh;
+}
+
+
+#slider {
+  height: 5vh;
+  margin-bottom: -5vh;
+  margin-top: 5vh;
+}

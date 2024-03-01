@@ -3,6 +3,7 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <div id="slider"></div>
+<div id="container2"></div>
 <div id="container"></div>
 <script type="module">
 
@@ -16,6 +17,9 @@ const marginTop = 40;
 const marginRight = 40;
 const marginBottom = 40;
 const marginLeft = 40;
+const width2 = 900;
+const height2 = 700;
+const lines2 = 20
 
 
 // Declare the slider dimensions
@@ -77,6 +81,44 @@ const valueY = document.createElement("span");
 sliderYDiv.appendChild(valueY);
 valueY.innerHTML = sliderY.value;
 
+const svg2 = d3.select("#container2")
+    .append("svg")
+    .attr("width", width2)
+    .attr("height", height2);
+
+// make grid lines for the x axis
+svg2.selectAll("line.x")
+    .data(d3.range(lines2))
+    .enter()
+    .append("line")
+    .attr("class", "x")
+    .attr("x1", function(d) {
+        return d * 50 + 25;
+    })
+    .attr("y1", 0)
+    .attr("x2", function(d) {
+        return d * 50 + 25;
+    })
+    .attr("y2", height2)
+    .style("stroke", "red")
+    .style("stroke-width", 2);
+
+// make grid lines for the y axis
+svg2.selectAll("line.y")
+    .data(d3.range(lines2))
+    .enter()
+    .append("line")
+    .attr("class", "y")
+    .attr("x1", 0)
+    .attr("y1", function(d) {
+        return d * 50 + 25;
+    })
+    .attr("x2", width2)
+    .attr("y2", function(d) {
+        return d * 50 + 25;
+    })
+    .style("stroke", "red")
+    .style("stroke-width", 2);
 
 // create a svg element of 10x10 nodes
 // the difference between the x and y coordinates of the nodes is 
@@ -85,7 +127,8 @@ valueY.innerHTML = sliderY.value;
 const svg = d3.select("#container")
     .append("svg")
     .attr("width", width)
-    .attr("height", height);
+    .attr("height", height)
+    .style("transform", "rotate(-135deg)");
 
 const nodes = d3.range(100).map(function(d) {
     return {
