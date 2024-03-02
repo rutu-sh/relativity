@@ -1,12 +1,18 @@
 #slider, #container, #container2 {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; 
 }
 
-#container{
-  margin-top: -100vh;
+#container {
+  z-index: 1; /* Ensure it's on top */
+  margin-top: -71vh;
+  margin-left: -3.3vw;
+}
+
+#container2 {
+  margin-top: 5vh;
 }
 
 
@@ -14,4 +20,13 @@
   height: 5vh;
   margin-bottom: -5vh;
   margin-top: 5vh;
+}
+
+#slider input[type="range"] {
+  width: 25vw;
+  height: 30px;
+}
+
+.graph {
+  margin-top: 10vh;
 }
